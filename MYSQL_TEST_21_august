@@ -1,0 +1,4 @@
+SELECT *
+FROM deprtment
+INNER JOIN address ON deprtment.address_id = address.address_id
+INNER JOIN employee ON deprtment.deptno = employee.deptno;
