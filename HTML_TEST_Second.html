@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+</head>
+<body>
+  <h1>Registration Form</h1>
+  <form action="#" method="post">
+    <table>
+        <td>
+      <tr>
+        <td>First Name <span style="color: red;">*</span>:</td>
+        <td><input type="text"  name="first_name" required></td>
+      </tr>
+        </td>
+      <tr>
+         
+        <td>Last Name:</td>
+        <td><input type="text"  name="last_name"></td>
+      </tr>
+      <tr>
+        <td>Mobile:</td>
+        <td><input type="tel"  name="mobile" pattern="[0-9]+" title="Please enter numbers only"></td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td><input type="email" id="email" name="email"></td>
+      </tr>
+      <tr>
+        <td>Date of Birth:</td>
+        <td><input type="date" id="dob" name="dob"></td>
+      </tr>
+      <tr>
+        <td>Password <span style="color: red;">*</span>:</td>
+        <td><input type="password" id="password" name="password" required></td>
+      </tr>
+      <tr>
+        <td>Country:</td>
+        <td>
+          <select  name="country">
+            <option value="usa">USA</option>
+            <option value="canada">Canada</option>
+            <option value="uk">UK</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Qualification:</td>
+        <td>
+          <input type="checkbox" id="qualification1" name="qualification" value="high_school">
+          High School
+          <input type="checkbox" id="qualification2" name="qualification" value="college">
+          College
+          <input type="checkbox" id="qualification3" name="qualification" value="university">
+          University
+        </td>
+      </tr>
+      <tr>
+        <td>Gender:</td>
+        <td>
+          <input type="radio" id="male" name="gender" value="male"> Male
+          <input type="radio" id="female" name="gender" value="female"> Female
+        </td>
+      </tr>
+    </table>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+    <button type="button" onclick="window.location.href='index.html'">Cancel</button>
+  </form>
+</body>
+</html>
