@@ -1,0 +1,14 @@
+CREATE TABLE bank_account (
+    acc_no INT PRIMARY KEY,
+    acc_opendate DATE,
+    status VARCHAR(20),
+    balance DECIMAL(10, 2)
+);
+CREATE TABLE transaction (
+    trans_id INT PRIMARY KEY AUTO_INCREMENT,
+    acc_no INT,
+    trans_type VARCHAR(20),
+    trans_date DATE,
+    trans_amount DECIMAL(10, 2),
+    FOREIGN KEY (acc_no) REFERENCES bank_account(acc_no) ON DELETE CASCADE
+);
