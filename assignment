@@ -1,0 +1,96 @@
+class Employee:
+    def __init__(self, emp_id, emp_name, emp_salary, emp_department):
+        self.emp_id = emp_id
+        self.emp_name = emp_name
+        self.emp_salary = emp_salary
+        self.emp_department = emp_department
+    
+    def calculate_emp_salary(self, hours_worked):
+        if hours_worked > 50:
+            overtime = hours_worked - 50
+            overtime_amount = (overtime * (self.emp_salary / 50))
+            total_salary = self.emp_salary + overtime_amount
+        else:
+            total_salary = self.emp_salary
+        return total_salary
+    
+    def emp_assign_department(self, new_department):
+        self.emp_department = new_department
+    
+    def print_employee_details(self):
+        print("Employee ID:", self.emp_id)
+        print("Employee Name:", self.emp_name)
+        print("Employee Salary:", self.emp_salary)
+        print("Employee Department:", self.emp_department)
+        print()
+
+
+class Restaurant:
+    def __init__(self):
+        self.menu_items = {}
+        self.book_table = []
+        self.customer_orders = []
+    
+    def add_item_to_menu(self, item_name, item_price):
+        self.menu_items[item_name] = item_price
+    
+    def book_tables(self, num_tables):
+        for table in range(1, num_tables + 1):
+            self.book_table.append(f"Table {table}")
+    
+    def customer_order(self, table, items):
+        order = {"Table": table, "Items": items}
+        self.customer_orders.append(order)
+    
+    def print_menu(self):
+        print("Menu:")
+        for item, price in self.menu_items.items():
+            print(f"{item}: ${price}")
+        print()
+    
+    def print_table_reservations(self):
+        print("Table Reservations:")
+        print(', '.join(self.book_table))
+        print()
+    
+    def print_customer_orders(self):
+        print("Customer Orders:")
+        for order in self.customer_orders:
+            print("Table:", order["Table"])
+            print("Items:", ', '.join(order["Items"]))
+        print()
+
+
+# Creating instances of Employee class
+employees = [
+    Employee("E7876", "ADAMS", 50000, "ACCOUNTING"),
+    Employee("E7499", "JONES", 45000, "RESEARCH"),
+    Employee("E7900", "MARTIN", 50000, "SALES"),
+    Employee("E7698", "SMITH", 55000, "OPERATIONS")
+]
+
+# Creating instance of Restaurant class
+restaurant = Restaurant()
+
+# Adding items to the menu
+restaurant.add_item_to_menu("Burger", 10)
+restaurant.add_item_to_menu("Pizza", 15)
+restaurant.add_item_to_menu("Pasta", 12)
+
+# Booking tables
+restaurant.book_tables(5)
+
+# Taking customer orders
+restaurant.customer_order("Table 1", ["Burger", "Pizza"])
+restaurant.customer_order("Table 3", ["Pasta"])
+
+# Printing menu, table reservations, and customer orders
+restaurant.print_menu()
+restaurant.print_table_reservations()
+restaurant.print_customer_orders()
+
+# Calculating employee salaries and printing employee details
+for emp in employees:
+    total_salary = emp.calculate_emp_salary(55)  # Assuming 55 hours worked
+    emp.emp_assign_department("HR")  # Changing department
+    emp.print_employee_details()
